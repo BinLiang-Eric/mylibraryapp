@@ -1,8 +1,16 @@
 const express = require('express')
 const app = express()
 app.use(express.json())  // replaces body-parser
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
+const exphbs = require('express-handlebars')
 
+app.engine('hbs', exphbs({
+  defaultlayout : 'main',
+  extname : 'hbs'
+}))
 
+app.set('view engine', 'hbs')
 // connect to models to routes
 require('./models') 
 const authorRouter = require('./routes/authorRouter')
@@ -11,7 +19,7 @@ const authorRouter = require('./routes/authorRouter')
 // GET home page
 app.get('/', (req, res) => {
   console.log('connected')
-  res.send('<h1>Library System</h1>')
+  res.render('index')
 })
 
 // Handle author-management requests

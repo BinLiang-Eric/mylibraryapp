@@ -1,0 +1,15 @@
+<section id='oneAuthor'>
+
+       <form method="post" action="/author-management/update">
+        <input type="hidden" id="_id" name="_id" value="{{thisAuthor._id}}">
+        <input type="hidden" id="authorId" name="authorId" value="{{thisAuthor.authorId}}">
+        <input type="text" size="10" id="first_name"name="first_name" placeholder="First Name" pattern="[A-Za-z]*" title="letters only" autofocus>
+        <input type="text" size="10" id="last_name" name="last_name" placeholder="Last Name" pattern="[A-Za-z]*" title="letters only" autofocus>
+        <input type="submit" value="Update">
+       </form>
+
+       <p>{{thisAuthor._id}}</p>
+       <p>{{thisAuthor.authorId}}</p>
+       <p>{{thisAuthor.first_name}}</p>
+       <p>{{thisAuthor.last_name}}</p>
+</section>

@@ -1,0 +1,14 @@
+<section id='authorList'> 
+      <ul>
+
+        {{#each authors}}
+
+        <li>
+            <a href="/author-management/{{this.authorId}}">
+            <p>{{this.last_name}}, {{this.first_name}}({{this.authorId}})</p>
+            </a>
+        </li>
+
+        {{/each}}
+        
+    </ul>
